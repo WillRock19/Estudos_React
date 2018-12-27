@@ -1,40 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
+import Logo from './componentes/Logo';
+import './componentes/Logo/index.css';
 
-class App extends React.Component{
+function Turn(){
+    return <div></div>;
+}
+
+function Continue(){
+    return <div></div>;
+}
+
+function Footer(){
+  return <div></div>;
+}
+
+class App extends React.Component
+{
   constructor(props){
     super(props);
     this.state = { clicks: 0  };
   }
 
   render(){
-    return <div onClick={ () => { console.log(this.state);  this.setState({ clicks: this.state.clicks + 1 }); } }>
-      This div was clicked out { this.state.clicks } times.
-    </div>;
+    return <section className="game-container">
+              <Logo />
+              <Turn />
+              <Continue />
+              <Footer />
+           </section>;
   }
 }
 
