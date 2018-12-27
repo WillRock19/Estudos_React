@@ -1,11 +1,12 @@
-section {
+section.logo-info {
     background-color: #226ec4;
     border-radius: 20px;
     margin: auto;
     height: 200px;
+    text-align: center;
     width: 50%;
 }
 
-section h1{
+.logo-info h1{
     padding-top: 50px;
 }

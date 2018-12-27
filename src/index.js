@@ -56,7 +56,16 @@ import PropTypes from 'prop-types';
 //                     </ShowMessage>, document.getElementById('root'));
 // }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const turnData = [
+    {
+        imageUrl: '../public/images/crisis-infinite-earths.jpg',
+        imageInfo: 'Flash desaparece do multiverso!',
+        options: [ "Crise nas infinitas Terras", "Crise de identidade", "Guerra Civil", "E de exterminio" ]
+    }
+];
+
+
+ReactDOM.render(<App data={turnData} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
