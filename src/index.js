@@ -4,7 +4,6 @@ import './index.css';
 import _ from 'lodash';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import PropTypes from 'prop-types';
 
 // function ButtonGenerator({numberOfButtons, onSelection}){
 
@@ -58,7 +57,7 @@ import PropTypes from 'prop-types';
 
 const turnData = [
     {
-        imageUrl: '../public/images/crisis-infinite-earths.jpg',
+        imageUrl: process.env.PUBLIC_URL + '/images/crisis-infinite-earths.jpg',
         imageInfo: 'Flash desaparece do multiverso!',
         options: [ "Crise nas infinitas Terras", "Crise de identidade", "Guerra Civil", "E de exterminio" ]
     }

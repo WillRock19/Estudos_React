@@ -1,17 +1,51 @@
 
+
+section.game-questions{
+    margin: auto;
+    margin-top: 3%;
+    width: 85%;
+}
+
+div.turn-image{
+    width: 50%;
+}
+
+div.turn-image img{
+    display: block;
+    border: 10px solid black;
+    border-radius: 20px;
+    height: auto;
+    margin: auto;
+    width: 60%;
+}
+
+div.turn-data{
+    display: flex;
+}
+
+div.turn-options {
+    width: 50%;
+}
+
+div.turn-options ul {
+    height: 100%;
+    margin: 0px;
+    padding-inline-start: 0px;
+}
+
 div.turn-options li {   
     border-radius: 10px;
     color: white;
+    cursor: pointer;
     list-style-type: none;
-    margin-bottom: 0.5%;
-    max-width: 50%;
+    margin-bottom: 5%;
     padding: 10px;
 }
 
 div.turn-options li:nth-child(odd) {
-    background-color: #BB0B0B;
+    background: linear-gradient(to top, #BB0B0B, #226ec4);
 }
 
 div.turn-options li:nth-child(even) {
-    background-color: #226ec4; 
+    background: linear-gradient(to bottom, #BB0B0B, #226ec4); 
 }
