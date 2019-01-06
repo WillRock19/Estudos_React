@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 const TurnQuestions = ({data}) => {
     return <section className="game-questions">
                 {data.map((info) => {
-                    return  <div>
+                    return  <div className="turn-data">
                                 <div className="turn-image">
                                     <img src={info.imageUrl} alt={data.imageInfo}></img>
                                 </div>
                                 <div className="turn-options">
                                     <ul>
-                                        { info.options.map((option) => <li> { option } </li>) }
+                                        { info.options.map((option, index) => <li key={index.toString()}> { option } </li>) }
                                     </ul>
                                 </div>
                             </div>

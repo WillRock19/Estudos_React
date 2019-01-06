@@ -1,5 +1,5 @@
 section.logo-info {
-    background-color: #226ec4;
+    background: linear-gradient(to right, #D42424, #226ec4);
     border-radius: 20px;
     margin: auto;
     height: 200px;

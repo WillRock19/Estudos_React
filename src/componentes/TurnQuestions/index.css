@@ -1,0 +1,17 @@
+
+div.turn-options li {   
+    border-radius: 10px;
+    color: white;
+    list-style-type: none;
+    margin-bottom: 0.5%;
+    max-width: 50%;
+    padding: 10px;
+}
+
+div.turn-options li:nth-child(odd) {
+    background-color: #BB0B0B;
+}
+
+div.turn-options li:nth-child(even) {
+    background-color: #226ec4; 
+}
