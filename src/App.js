@@ -7,25 +7,34 @@ import './componentes/Logo/index.css';
 import TurnQuestion from './componentes/TurnQuestions';
 import './componentes/TurnQuestions/index.css';
 
+import PropTypes from 'prop-types';
+
 function Continue(){
     return <div></div>;
 }
 
 function Footer(){
-  return <div></div>;
+  return <footer>
+            <p>Aplicação desenvolvida para testes por @WillRock</p>
+         </footer>;
 }
 
 class App extends React.Component
 {
-    constructor(props){
+    constructor(props) {
       super(props);
-      console.log(props);
+      this.imprimirProps();
+    }
+
+    imprimirProps(){
+      console.log("A props recebida pelo App vale: ");
+      console.log(this.props);
     }
 
     render(){
       return <section className="game-container">
                 <Logo />
-                <TurnQuestion data={this.props.data} />
+                <TurnQuestion {...this.props} />
                 <Continue />
                 <Footer />
             </section>;
@@ -33,3 +42,11 @@ class App extends React.Component
 }
 
 export default App;
+
+App.propTypes = {
+    turnData: PropTypes.shape({
+      options: PropTypes.arrayOf(PropTypes.string).isRequired,
+      crossoverInfo: PropTypes.objectOf(PropTypes.string).isRequired
+    })
+    .isRequired
+}

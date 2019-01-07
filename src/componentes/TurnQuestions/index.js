@@ -1,28 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TurnQuestions = ({data}) => {
+const TurnQuestions = ({turnData}) => {
+
+    console.log("Dados do turno recebidos pelo TurnQuestions: ");
+    console.log(turnData);
+
     return <section className="game-questions">
-                {data.map((info) => {
-                    return  <div className="turn-data">
-                                <div className="turn-image">
-                                    <img src={info.imageUrl} alt={data.imageInfo}></img>
-                                </div>
-                                <div className="turn-options">
-                                    <ul>
-                                        { info.options.map((option, index) => <li key={index.toString()}> { option } </li>) }
-                                    </ul>
-                                </div>
-                            </div>
-                        }
-                    )}
+                <div className="turn-data">
+                    <div className="turn-image">
+                        <img src={turnData.crossoverInfo.imageUrl} alt={turnData.crossoverInfo.imageInfo}></img>
+                    </div>
+                    <div className="turn-options">
+                        <ul>
+                            { turnData.options.sort().map((option, index) => <li key={index.toString()}> { option } </li>) }
+                        </ul>
+                    </div>
+                </div>
            </section>;
 }
 
-// TurnQuestions.propTypes = {
-
-//     data: PropTypes.
-
-// }
+TurnQuestions.propTypes = {
+    turnData: PropTypes.shape({
+      options: PropTypes.arrayOf(PropTypes.string).isRequired,
+      crossoverInfo: PropTypes.objectOf(PropTypes.string).isRequired
+    })
+    .isRequired
+}
 
 export default TurnQuestions;
