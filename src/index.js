@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import _ from 'lodash';
-import { shuffle, sample } from "lodash";
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { shuffle, sample } from "lodash";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
 // function ButtonGenerator({numberOfButtons, onSelection}){
 
@@ -109,17 +109,7 @@ function getTurnData(crossoverData){
     }
 }
 
-const turnData = [
-    {
-        imageUrl: '',
-        imageInfo: '',
-        options: [ "Crise nas infinitas Terras", "Crise de identidade", "Guerra Civil", "E de exterminio" ]
-    }
-];
-
 const input = getTurnData(crossoverData);
-
-console.log(input);
 
 ReactDOM.render(<App turnData={input} />, document.getElementById('root'));
 

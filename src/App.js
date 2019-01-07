@@ -7,16 +7,13 @@ import './componentes/Logo/index.css';
 import TurnQuestion from './componentes/TurnQuestions';
 import './componentes/TurnQuestions/index.css';
 
+import Footer from './componentes/Footer';
+import './componentes/Footer/index.css';
+
 import PropTypes from 'prop-types';
 
 function Continue(){
     return <div></div>;
-}
-
-function Footer(){
-  return <footer>
-            <p>Aplicação desenvolvida para testes por @WillRock</p>
-         </footer>;
 }
 
 class App extends React.Component
