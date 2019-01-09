@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import PropTypes from 'prop-types';
+
 import Logo from './componentes/Logo';
 import './componentes/Logo/index.css';
 
@@ -10,11 +12,8 @@ import './componentes/TurnQuestions/index.css';
 import Footer from './componentes/Footer';
 import './componentes/Footer/index.css';
 
-import PropTypes from 'prop-types';
-
-function Continue(){
-    return <div></div>;
-}
+import Continue from './componentes/Continue';
+import './componentes/Continue/index.css';
 
 class App extends React.Component
 {
@@ -31,7 +30,7 @@ class App extends React.Component
     render(){
       return <section className="game-container">
                 <Logo />
-                <TurnQuestion {...this.props} />
+                <TurnQuestion {...this.props}/>
                 <Continue />
                 <Footer />
             </section>;
@@ -41,9 +40,11 @@ class App extends React.Component
 export default App;
 
 App.propTypes = {
+    onAnswerSelected: PropTypes.func.isRequired,
     turnData: PropTypes.shape({
       options: PropTypes.arrayOf(PropTypes.string).isRequired,
       crossoverInfo: PropTypes.objectOf(PropTypes.string).isRequired
     })
-    .isRequired
+    .isRequired,
+    turnResult: PropTypes.string
 }

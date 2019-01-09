@@ -1,9 +1,18 @@
 
 
 section.game-questions{
+    background-color: white;
     margin: auto;
     margin-top: 3%;
     width: 85%;
+}
+
+section.game-questions.correct{
+    background-color: greenyellow;
+}
+
+section.game-questions.incorrect{
+    background-color: red;
 }
 
 div.turn-image{
