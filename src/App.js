@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
+
 
 import PropTypes from 'prop-types';
 
@@ -31,6 +33,9 @@ class App extends React.Component
       return <section className="game-container">
                 <Logo />
                 <TurnQuestion {...this.props}/>
+                <span class="add-comic-event">
+                  <Link to="/add">Add a big event!</Link>
+                </span>
                 <Continue />
                 <Footer />
             </section>;

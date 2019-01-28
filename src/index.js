@@ -1,7 +1,10 @@
 import './index.css';
 import _ from 'lodash';
 import * as serviceWorker from './serviceWorker';
+
 import { shuffle, sample } from "lodash";
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -68,41 +71,24 @@ function onAnswerSelected(answer){
     render();
 }
 
-// class Identity extends React.Component 
-// {
-//     constructor(props){
-//         super(props);
-//         this.state = {
-//             firstName: "",
-//             lastName: ""
-//         };
+function AppWrapper(){
+    return <App turnData={input} turnResult={turnResult} onAnswerSelected={onAnswerSelected}/>;
+}
 
-//         this.onFieldChange = this.onFieldChange.bind(this);
-//     }
-
-//     onFieldChange(event){
-
-//         console.log(event.target.name);
-
-//         this.setState({
-//             [event.target.name]: event.target.value
-//         })
-//     }
-
-//     render() {
-//       return (
-//         <form>
-//           <input type="text" name="firstName" value={this.state.firstName} placeholder="First Name" onChange={this.onFieldChange} />
-//           <input type="text" name="lastName" value={this.state.lastname} placeholder="Last Name"  onChange={this.onFieldChange}/>
-//         </form>);
-//     }
-//   }
-  
-//   ReactDOM.render(<Identity />, document.getElementById("root"));
-
+function AddComicEvent(){
+    return <div>
+        <h1>Add a Comic Event Now!</h1>
+    </div>
+}
 
 function render() {
-    ReactDOM.render(<App turnData={input} turnResult={turnResult} onAnswerSelected={onAnswerSelected}/>, document.getElementById('root'));
+    ReactDOM.render(
+    <BrowserRouter>
+        <switch>
+            <Route exact path="/" component={AppWrapper} />
+            <Route path="/add" component={AddComicEvent} />
+        </switch>
+    </BrowserRouter>, document.getElementById('root'));
 }
 
 render();
