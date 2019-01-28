@@ -8,7 +8,7 @@ section.game-questions{
 }
 
 section.game-questions.correct{
-    background-color: greenyellow;
+    background-color: rgb(109, 179, 4);
 }
 
 section.game-questions.incorrect{
@@ -51,10 +51,26 @@ div.turn-options li {
     padding: 10px;
 }
 
+div.turn-options li:nth-child(odd){
+    background-color: #5638D8;
+}
+
 div.turn-options li:nth-child(odd) {
-    background: linear-gradient(to top, #BB0B0B, #226ec4);
+    border-left: 5px solid rgba(185, 11, 11, 0.815);
+}
+
+div.turn-options li:nth-child(odd):hover {
+    background-color: rgba(185, 11, 11, 0.815);
+}
+
+div.turn-options li:nth-child(even){
+    background-color:rgba(185, 11, 11, 0.815);
+}
+
+div.turn-options li:nth-child(even):hover {
+    background-color: #5638D8;
 }
 
 div.turn-options li:nth-child(even) {
-    background: linear-gradient(to bottom, #BB0B0B, #226ec4); 
+    border-left: 5px solid #5638D8; 
 }

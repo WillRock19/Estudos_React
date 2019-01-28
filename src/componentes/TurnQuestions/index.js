@@ -32,11 +32,13 @@ const TurnQuestions = ({turnData, turnResult, onAnswerSelected}) => {
 }
 
 TurnQuestions.propTypes = {
+    onAnswerSelected: PropTypes.func.isRequired,
     turnData: PropTypes.shape({
       options: PropTypes.arrayOf(PropTypes.string).isRequired,
       crossoverInfo: PropTypes.objectOf(PropTypes.string).isRequired
     })
-    .isRequired
+    .isRequired,
+    turnResult: PropTypes.string
 }
 
 export default TurnQuestions;
