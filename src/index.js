@@ -7,7 +7,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import App from './App';
+import AddComicArc from './componentes/AddComicArc';
 
 const crossoverData = [
     {
@@ -75,18 +77,12 @@ function AppWrapper(){
     return <App turnData={input} turnResult={turnResult} onAnswerSelected={onAnswerSelected}/>;
 }
 
-function AddComicEvent(){
-    return <div>
-        <h1>Add a Comic Event Now!</h1>
-    </div>
-}
-
 function render() {
     ReactDOM.render(
     <BrowserRouter>
         <switch>
             <Route exact path="/" component={AppWrapper} />
-            <Route path="/add" component={AddComicEvent} />
+            <Route path="/add" component={AddComicArc} />
         </switch>
     </BrowserRouter>, document.getElementById('root'));
 }

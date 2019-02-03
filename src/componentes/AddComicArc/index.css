@@ -1,0 +1,18 @@
+.AddArcForm{
+    width: 80%;
+    margin: 50px 10%;
+}
+
+.AddArcForm form > div{
+    margin-bottom: 20px;
+}
+
+.AddArcForm form > div > label{
+    display: block;
+}
+
+.AddArcForm form input{
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px;
+}
