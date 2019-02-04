@@ -3,7 +3,7 @@ import _ from 'lodash';
 import * as serviceWorker from './serviceWorker';
 
 import { shuffle, sample } from "lodash";
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,54 +13,61 @@ import AddComicArc from './componentes/AddComicArc';
 
 const comicsData = [
     {
-        ArcName: "Crise nas infinitas Terras",
+        arcName: "Crise nas infinitas Terras",
         imageUrl: process.env.PUBLIC_URL + '/images/crisis-infinite-earths.jpg',
-        imageInfo: "Flash desaparece do multiverso!"
+        imageInfo: "Flash desaparece do multiverso!",
+        authors: ['']
     },
     {
-        ArcName: "Guerra Civil",
+        arcName: "Guerra Civil",
         imageUrl: process.env.PUBLIC_URL + '/images/civil_War.jpg',
-        imageInfo: "Heróis lutando!"
+        imageInfo: "Heróis lutando!",
+        authors: ['']
     },
     {
-        ArcName: "Zero Hora",
+        arcName: "Zero Hora",
         imageUrl: process.env.PUBLIC_URL + '/images/zero-hour.jpg',
-        imageInfo: "Paralax no controle!"
+        imageInfo: "Paralax no controle!",
+        authors: ['']
     },
     {
-        ArcName: "Crise de Identidade",
+        arcName: "Crise de Identidade",
         imageUrl: process.env.PUBLIC_URL + '/images/identity-crisis.jpg',
-        imageInfo: "Enterrando alguém amado"
+        imageInfo: "Enterrando alguém amado",
+        authors: ['']
     },
     {
-        ArcName: "Invasão Secreta",
+        arcName: "Invasão Secreta",
         imageUrl:  process.env.PUBLIC_URL + '/images/secret-invasion.jpg',
-        imageInfo: "Heróis são seus maiores inimigos!"
+        imageInfo: "Heróis são seus maiores inimigos!",
+        authors: ['']
     },
     {
-        ArcName: "Hulk contra o mundo",
+        arcName: "Hulk contra o mundo",
         imageUrl: process.env.PUBLIC_URL + '/images/world-war-hulk.jpg',
-        imageInfo: "A queda de Raio Negro!"
+        imageInfo: "A queda de Raio Negro!",
+        authors: ['']
     },
     {
-        ArcName: "Batman vs Predador",
+        arcName: "Batman vs Predador",
         imageUrl: process.env.PUBLIC_URL + '/images/batman-vs-predator.jpg',
-        imageInfo: "Que o melhor caçador vença!"
+        imageInfo: "Que o melhor caçador vença!",
+        authors: ['']
     },
 ]
 
 function getTurnData(comicsData) {
 
-    const allArcNames = comicsData.reduce((previousItem, currentItem) => {
-            return previousItem.concat(currentItem.ArcName);  
+    const allarcNames = comicsData.reduce((previousItem, currentItem) => {
+            return previousItem.concat(currentItem.arcName);  
     }, []);
 
-    const fourRandomNames = shuffle(allArcNames).slice(0, 4);
+    const fourRandomNames = shuffle(allarcNames).slice(0, 4);
     const turnAnswer = sample(fourRandomNames);
 
     return {
         options: fourRandomNames,
-        comicInfo: comicsData.find((data) => data.ArcName === turnAnswer)
+        comicInfo: comicsData.find((data) => data.arcName === turnAnswer)
     }
 }
 
@@ -68,22 +75,25 @@ const input = getTurnData(comicsData);
 let turnResult = "";
 
 function onAnswerSelected(answer){
-    const isCorrect = input.comicInfo.ArcName === answer;
+    const isCorrect = input.comicInfo.arcName === answer;
     turnResult = isCorrect ? "correct" : "incorrect";
     render();
 }
 
+function onContinueClick(){
+
+}
+
 function AppWrapper(){
-    return <App turnData={input} turnResult={turnResult} onAnswerSelected={onAnswerSelected}/>;
+    return <App turnData={input} turnResult={turnResult} onAnswerSelected={onAnswerSelected} onContinueClick={onContinueClick}/>;
 }
 
-function AddComicArcWrapper(){
-    return <AddComicArc onAddComicArc={(arcInfo) =>{
-        
-
-
-    }} />
-}
+const AddComicArcWrapper = withRouter(({history}) => 
+    <AddComicArc onAddComicArc={(arcInfo) => { 
+            comicsData.push(arcInfo);
+            history.push('/'); 
+        }} 
+    />);
 
 function render() {
     ReactDOM.render(

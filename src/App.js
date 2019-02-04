@@ -36,7 +36,7 @@ class App extends React.Component
                 <span className="add-comic-event">
                   <Link to="/add">Add an awesome Comic Book's Arc!</Link>
                 </span>
-                <Continue />
+                <Continue {...this.props} />
                 <Footer />
             </section>;
     }

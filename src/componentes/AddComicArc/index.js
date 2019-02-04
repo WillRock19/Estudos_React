@@ -52,7 +52,12 @@ class AddComicArcForm extends React.Component
 
     onFormSubmit(event){
         event.preventDefault();
-        this.props.onAddComicArc(this.state);
+        this.props.onAddComicArc({
+            arcName: this.state.Name,
+            imageUrl: this.state.ImageUrl,
+            imageInfo: this.state.ImageInfo,
+            authors: this.state.Authors
+        });
     }
 
     render() {
