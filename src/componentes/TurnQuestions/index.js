@@ -16,7 +16,7 @@ const TurnQuestions = ({turnData, turnResult, onAnswerSelected}) => {
     return <section className={"game-questions " + defineTurnResultClass()}>
                 <div className="turn-data">
                     <div className="turn-image">
-                        <img src={turnData.crossoverInfo.imageUrl} alt={turnData.crossoverInfo.imageInfo}></img>
+                        <img src={turnData.comicInfo.imageUrl} alt={turnData.comicInfo.imageInfo}></img>
                     </div>
                     <div className="turn-options">
                         <ul>
@@ -35,7 +35,7 @@ TurnQuestions.propTypes = {
     onAnswerSelected: PropTypes.func.isRequired,
     turnData: PropTypes.shape({
       options: PropTypes.arrayOf(PropTypes.string).isRequired,
-      crossoverInfo: PropTypes.objectOf(PropTypes.string).isRequired
+      comicInfo: PropTypes.objectOf(PropTypes.string).isRequired
     })
     .isRequired,
     turnResult: PropTypes.string

@@ -33,8 +33,8 @@ class App extends React.Component
       return <section className="game-container">
                 <Logo />
                 <TurnQuestion {...this.props}/>
-                <span class="add-comic-event">
-                  <Link to="/add">Add a big event!</Link>
+                <span className="add-comic-event">
+                  <Link to="/add">Add an awesome Comic Book's Arc!</Link>
                 </span>
                 <Continue />
                 <Footer />
@@ -48,7 +48,7 @@ App.propTypes = {
     onAnswerSelected: PropTypes.func.isRequired,
     turnData: PropTypes.shape({
       options: PropTypes.arrayOf(PropTypes.string).isRequired,
-      crossoverInfo: PropTypes.objectOf(PropTypes.string).isRequired
+      comicInfo: PropTypes.objectOf(PropTypes.string).isRequired
     })
     .isRequired,
     turnResult: PropTypes.string

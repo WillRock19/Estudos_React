@@ -1,11 +1,11 @@
 import React from 'react';
 import './index.css';
 
-function AddComicArc() {
+function AddComicArc({ onAddComicArc }) {
     
     return <section className="AddArcForm">
             <h1>Add a Comic arc now!</h1>
-            <AddComicArcForm /> 
+            <AddComicArcForm onAddComicArc={onAddComicArc} /> 
         </section>
 }
 
@@ -52,6 +52,7 @@ class AddComicArcForm extends React.Component
 
     onFormSubmit(event){
         event.preventDefault();
+        this.props.onAddComicArc(this.state);
     }
 
     render() {
