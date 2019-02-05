@@ -56,18 +56,28 @@ const comicsData = [
     },
 ]
 
-function getTurnData(comicsData) {
+const turnInfo = createTurnInformation();
 
-    const allarcNames = comicsData.reduce((previousItem, currentItem) => {
+function getTurnData(comicData) {
+
+    const allNames = comicData.reduce((previousItem, currentItem) => {
             return previousItem.concat(currentItem.arcName);  
     }, []);
 
-    const fourRandomNames = shuffle(allarcNames).slice(0, 4);
+    const fourRandomNames = shuffle(allNames).slice(0, 4);
     const turnAnswer = sample(fourRandomNames);
 
     return {
         options: fourRandomNames,
-        comicInfo: comicsData.find((data) => data.arcName === turnAnswer)
+        comicInfo: comicData.find((data) => data.arcName === turnAnswer)
+    }
+}
+
+function createTurnInformation(){
+    return {
+        turnData: getTurnData(comicsData),
+        turnResult: "",
+
     }
 }
 
@@ -77,11 +87,11 @@ let turnResult = "";
 function onAnswerSelected(answer){
     const isCorrect = input.comicInfo.arcName === answer;
     turnResult = isCorrect ? "correct" : "incorrect";
-    render();
+    // render();
 }
 
 function onContinueClick(){
-
+    
 }
 
 function AppWrapper(){

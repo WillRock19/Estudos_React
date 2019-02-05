@@ -35,7 +35,12 @@ TurnQuestions.propTypes = {
     onAnswerSelected: PropTypes.func.isRequired,
     turnData: PropTypes.shape({
       options: PropTypes.arrayOf(PropTypes.string).isRequired,
-      comicInfo: PropTypes.objectOf(PropTypes.string).isRequired
+      comicInfo: PropTypes.shape({
+        arcName: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string.isRequired,
+        imageInfo: PropTypes.string.isRequired,
+        authors: PropTypes.arrayOf(PropTypes.string).isRequired
+      })
     })
     .isRequired,
     turnResult: PropTypes.string
