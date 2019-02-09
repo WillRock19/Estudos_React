@@ -3,7 +3,7 @@ import _ from 'lodash';
 import * as serviceWorker from './serviceWorker';
 
 import { shuffle, sample } from "lodash";
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -56,7 +56,7 @@ const comicsData = [
     },
 ]
 
-const turnInfo = createTurnInformation();
+let turnInfo = createTurnInformation();
 
 function getTurnData(comicData) {
 
@@ -76,17 +76,13 @@ function getTurnData(comicData) {
 function createTurnInformation(){
     return {
         turnData: getTurnData(comicsData),
-        turnResult: "",
-
+        turnResult: ""
     }
 }
 
-const input = getTurnData(comicsData);
-let turnResult = "";
-
 function onAnswerSelected(answer){
-    const isCorrect = input.comicInfo.arcName === answer;
-    turnResult = isCorrect ? "correct" : "incorrect";
+    const isCorrect = turnInfo.turnData.comicInfo.arcName === answer;
+    turnInfo.turnResult = isCorrect ? "correct" : "incorrect";
     render();
 }
 
@@ -95,7 +91,7 @@ function onContinueClick(){
 }
 
 function AppWrapper(){
-    return <App turnData={input} turnResult={turnResult} onAnswerSelected={onAnswerSelected} onContinueClick={onContinueClick}/>;
+    return <App {...turnInfo} onAnswerSelected={onAnswerSelected} onContinueClick={onContinueClick}/>;
 }
 
 const AddComicArcWrapper = withRouter(({history}) => 
@@ -108,10 +104,10 @@ const AddComicArcWrapper = withRouter(({history}) =>
 function render() {
     ReactDOM.render(
     <BrowserRouter>
-        <switch>
+        <Switch>
             <Route exact path="/" component={AppWrapper} />
             <Route path="/add" component={AddComicArcWrapper} />
-        </switch>
+        </Switch>
     </BrowserRouter>, document.getElementById('root'));
 }
 
