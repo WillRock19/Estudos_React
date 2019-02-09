@@ -87,7 +87,7 @@ let turnResult = "";
 function onAnswerSelected(answer){
     const isCorrect = input.comicInfo.arcName === answer;
     turnResult = isCorrect ? "correct" : "incorrect";
-    // render();
+    render();
 }
 
 function onContinueClick(){
