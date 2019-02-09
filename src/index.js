@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import ComicGameApp from './App';
 import AddComicArc from './componentes/AddComicArc';
 
 const comicsData = [
@@ -87,11 +87,12 @@ function onAnswerSelected(answer){
 }
 
 function onContinueClick(){
-    
+    turnInfo = createTurnInformation();
+    render();
 }
 
 function AppWrapper(){
-    return <App {...turnInfo} onAnswerSelected={onAnswerSelected} onContinueClick={onContinueClick}/>;
+    return <ComicGameApp {...turnInfo} onAnswerSelected={onAnswerSelected} onContinueClick={onContinueClick}/>;
 }
 
 const AddComicArcWrapper = withRouter(({history}) => 
