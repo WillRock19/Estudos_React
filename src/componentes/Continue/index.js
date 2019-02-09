@@ -5,10 +5,10 @@ function showContinueButton(turnResult){
 }
 
 export default ({turnResult, onContinueClick}) => {
-    return <div>{
+    return <span>{
             showContinueButton(turnResult) ? 
-                <button className="continue-button" onClick={onContinueClick}>Continue...</button> 
+                <button className="continue-button" onClick={onContinueClick}>Continue</button> 
             : null
         }
-    </div>;
+    </span>;
 };

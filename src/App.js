@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './App.css';
-
 
 import PropTypes from 'prop-types';
 
@@ -16,6 +14,8 @@ import './componentes/Footer/index.css';
 
 import Continue from './componentes/Continue';
 import './componentes/Continue/index.css';
+
+import GoToForm from './componentes/GoToForm';
 
 class App extends React.Component
 {
@@ -33,10 +33,10 @@ class App extends React.Component
       return <section className="game-container">
                 <Logo />
                 <TurnQuestion {...this.props}/>
-                <span className="add-comic-event">
-                  <Link to="/add">Add an awesome Comic Book's Arc!</Link>
-                </span>
-                <Continue {...this.props} />
+                <section className="game-buttons">
+                    <GoToForm />
+                    <Continue {...this.props} />
+                </section>
                 <Footer />
             </section>;
     }

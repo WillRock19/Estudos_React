@@ -1,5 +1,11 @@
+section.game-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+
 .App {
   text-align: center;
+  font-size: 15px;
 }
 
 .App-logo {
@@ -20,17 +26,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-span.add-comic-event{
-  background-color: dodgerblue;
-  border: 1px solid;
-  border-radius: 10px;
-  padding: 10px 5px 10px 5px;
-}
-
-span.add-comic-event > a{
-  text-decoration: none;
 }
 
 @keyframes App-logo-spin {

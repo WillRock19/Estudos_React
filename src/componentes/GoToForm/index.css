@@ -1,0 +1,12 @@
+span.add-arc-button{
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px 5px 10px 5px;
+  }
+  
+span.add-arc-button > a{
+    color: black;
+    text-decoration: none;
+}
