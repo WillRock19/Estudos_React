@@ -1,4 +1,3 @@
-import './index.css';
 import _ from 'lodash';
 import * as serviceWorker from './serviceWorker';
 
@@ -8,6 +7,7 @@ import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './index.css';
 import ComicGameApp from './App';
 import AddComicArc from './componentes/AddComicArc';
 
@@ -91,11 +91,11 @@ function onContinueClick(){
     render();
 }
 
-function AppWrapper(){
+function GameWrapper(){
     return <ComicGameApp {...turnInfo} onAnswerSelected={onAnswerSelected} onContinueClick={onContinueClick}/>;
 }
 
-const AddComicArcWrapper = withRouter(({history}) => 
+const AddFormWrapper = withRouter(({history}) => 
     <AddComicArc onAddComicArc={(arcInfo) => { 
             comicsData.push(arcInfo);
             history.push('/'); 
@@ -106,8 +106,8 @@ function render() {
     ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={AppWrapper} />
-            <Route path="/add" component={AddComicArcWrapper} />
+            <Route exact path="/" component={GameWrapper} />
+            <Route path="/add" component={AddFormWrapper} />
         </Switch>
     </BrowserRouter>, document.getElementById('root'));
 }
