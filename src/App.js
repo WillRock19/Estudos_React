@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
-
 import PropTypes from 'prop-types';
 
-import Logo from './componentes/Logo';
-import './componentes/Logo/index.css';
-
-import TurnQuestion from './componentes/TurnQuestions';
-import './componentes/TurnQuestions/index.css';
-
-import Footer from './componentes/Footer';
-import './componentes/Footer/index.css';
+import './App.css';
 
 import Continue from './componentes/Continue';
-import './componentes/Continue/index.css';
-
+import Footer from './componentes/Footer';
 import GoToForm from './componentes/GoToForm';
+import Logo from './componentes/Logo';
+import TurnQuestion from './componentes/TurnQuestions';
 
 class App extends React.Component
 {

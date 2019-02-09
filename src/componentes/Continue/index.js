@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 function showContinueButton(turnResult){
     return turnResult == 'correct';
